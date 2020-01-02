@@ -44,6 +44,13 @@ appBar: {
 }
 }));
 
+const ContainerStyles = {
+    // height: "calc(100vh - 56px)",
+    width: "100vw",
+    overflow: "auto",
+    // textAlign: "center"
+  };
+
 const CardPage = styled.div`
   height: 350px;
   /* width: 260px; */
@@ -106,7 +113,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     
 return (
      <>
-      <AppBar position="static" color="inherit">
+     <div style={ContainerStyles}>
+     <AppBar position="relative" color="inherit">
         <Toolbar style={{display: "flex", flexWrap:"wrap", justifyContent:"space-between"}}>
             <p style={{ color: "black", fontWeight: "600", fontSize: "17px", margin: "0px" }}>
                 Josh Kingsmen
@@ -280,8 +288,6 @@ return (
             </div>
         </Grid>
         <br />
-        <br />
-        <br />
         <Typography variant="h5" style={{opacity: "0.7"}}>
            <strong>&nbsp; Learning Material</strong> 
         </Typography>
@@ -352,7 +358,9 @@ return (
                 </Slider>
             </div>
         </Grid>
-        <AppBar color="inherit" style={{top: "auto", bottom: 0, opacity: "0.7"}}>
+        <br />
+        <br />
+        <AppBar position="relative" color="inherit" style={{top: "auto", bottom: 0, opacity: "0.7"}}>
             <Toolbar style={{display: "flex", flexWrap:"wrap", justifyContent:"space-between"}}>
                 <IconButton color="inherit">
                     <HomeIcon style={{ fontSize: "33px" }} />
@@ -374,13 +382,14 @@ return (
         <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
             <AppBar className={classes.appBar}>
                 <Toolbar>
-                    <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                    <IconButton edge="start" color="inherit" onClick={handleClose}>
                         <ArrowBackIcon />
                     </IconButton>
                 </Toolbar>
             </AppBar>
             <MentorProfile />                               
         </Dialog>
+     </div>     
      </>
     );
 }
